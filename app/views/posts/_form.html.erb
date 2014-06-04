@@ -1,0 +1,30 @@
+<% form_url = action == :new ? posts_url : post_url(post) %>
+
+<form action="<%= form_url %>" method="post">
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+  <!--<input type="hidden" name="circle[member_ids][]" value="">-->
+    
+  <% if action == :edit %>  
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+    
+  <label for="body">Body</label><br>
+  <textarea id="body" rows="8" cols="40" name="post[body]"></textarea>
+  <br>
+  
+  <% 3.times do |i| %>
+    <label for="link_<%= i %>">Link</label>
+    <input id="link_<%= i %>" type="text" name="links[<%= i %>][url]">
+    <br>
+  <% end %>
+  
+  <% circles.each do |circle| %>    
+    <input id="id_<%= circle.id %>" type="checkbox" name="post[circle_ids][]"
+            value="<%= circle.id %>">
+    <label for="id_<%= circle.id %>" ><%= circle.name %></label>
+    <br>
+  <% end %>
+  
+  <input type="submit">
+</form>

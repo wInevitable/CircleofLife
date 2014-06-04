@@ -1,0 +1,25 @@
+<section>
+  <h3>
+    <% if referral == :circle %>
+      <%= circle.name %>
+    <% else %>
+      <%= link_to circle.name, circle_url(circle) %>
+    <% end %>
+    <%= link_to("(Edit)", edit_circle_url(circle))%>
+    <%= button_to("Purge", circle_url(circle), method: :delete) %>
+  </h3>
+  
+  <ul>
+    <% if referral == :circle %>
+      <% circle.members.each do |member| %>
+        <li><%= member.email %></li>
+      <% end %>  
+    <% else %>
+      <% circle.members.limit(3).each do |member| %>
+        <li><%= member.email %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>
+
+<%= link_to "Profile Page", user_url(circle.user) if referral == :circle %>

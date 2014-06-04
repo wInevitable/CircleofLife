@@ -1,0 +1,5 @@
+development:
+  adapter: postgresql
+  database: circle_of_life_development
+  host: localhost
+  username: appacademy

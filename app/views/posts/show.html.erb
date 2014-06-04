@@ -1,0 +1,16 @@
+<h1>Feed</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+        From <%= post.author.email %><br>
+        <%= post.body %>
+        <ul>
+          <% post.links.each do |link| %>
+            <li><%= link.url %></li>
+          <% end %>
+        </ul>
+    </li>
+    <hr>
+  <% end %>
+</ul>

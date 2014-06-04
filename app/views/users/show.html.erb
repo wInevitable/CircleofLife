@@ -1,0 +1,9 @@
+<h1>Welcome <%= @user.email %></h1>
+
+<%= render @user.circles, referral: :user %>
+
+<%= link_to("Add a circle", new_user_circle_url(@user)) %>
+
+<!-- Add circle 'show' here -->
+
+<!-- link to create new circle here -->

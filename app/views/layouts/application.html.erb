@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CircleOfLife</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= yield %>
+
+  <hr>
+
+  <% if signed_in? %>
+    <%= button_to "Sign out", session_url, method: :delete %>
+  <% else %>
+    <%= link_to("Sign in", new_session_url) %>
+    <%= link_to("Sign up", new_user_url) %>
+  <% end %>
+
+</body>
+</html>

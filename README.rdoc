@@ -1,0 +1,1 @@
+Implementing Google-style circles with Ruby on Rails!
